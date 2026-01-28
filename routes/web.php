@@ -7,8 +7,8 @@ use App\Http\Controllers\PrincipalController;
 
 
 Route::get('/hello',HomeController::class);
-Route::get('post/mensaje',[PostController::class,
-'Mensaje']);/*Si el usuario escribe 'post/hello' ingresara al método 'Mensaje'*/
+Route::get('post/mensaje',[PostController::class,'Mensaje']); /*Si el usuario escribe 'post/hello' ingresara al método 'Mensaje'*/
+Route::get('post/about/{param?}/{name?}',[PostController::class, 'About']);
 /*
 |--------------------------------------------------------------------------
 | Web Routes
