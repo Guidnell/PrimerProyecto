@@ -33,6 +33,9 @@
                     <x-slot name="texto_tarjeta">
                         El contenido de la tarjeta va aquí
                     </x-slot>
+                    <x-slot name="text_boton">
+                        boton1
+                    </x-slot>
                </x-card>
             </div>
  
@@ -43,6 +46,9 @@
                     </x-slot>
                     <x-slot name="texto_tarjeta">
                         El contenido de la tarjeta va aquí
+                    </x-slot>
+                    <x-slot name="text_boton">
+                        boton2
                     </x-slot>
                </x-card>
             </div>
@@ -55,6 +61,9 @@
                     <x-slot name="texto_tarjeta">
                         El contenido de la tarjeta va aquí
                     </x-slot>
+                    <x-slot name="text_boton">
+                        boton3
+                    </x-slot>
                </x-card>
             </div>
  
@@ -65,6 +74,9 @@
                     </x-slot>
                     <x-slot name="texto_tarjeta">
                         El contenido de la tarjeta va aquí
+                    </x-slot>
+                    <x-slot name="text_boton">
+                        boton4
                     </x-slot>
                </x-card>
             </div>

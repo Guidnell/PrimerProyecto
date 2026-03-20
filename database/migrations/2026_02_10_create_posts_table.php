@@ -14,11 +14,14 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            $table->longtext('content');
+            // El campo debe ser único en la tabla
+            // Campo de tipo fecha y hora que puede ser nulo
+            $table->longText('content');
             $table->string('categoria');
             $table->timestamps();
         });
     }
+
     /**
      * Reverse the migrations.
      */
