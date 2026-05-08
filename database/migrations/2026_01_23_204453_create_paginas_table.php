@@ -14,9 +14,9 @@ return new class extends Migration
         Schema::create('paginas', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            // El campo debe ser único en la tabla
+            /** El siguiente campo debe de ser único en la tabla */
             $table->string('email')->unique();
-            // Campo de tipo fecha y hora que puede ser nulo
+            //Campo de tipo fecha y hora que puede ser nulo
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
             $table->string('avatar')->nullable();
@@ -28,7 +28,7 @@ return new class extends Migration
     }
 
     /**
-     * Reverse the migrations.
+     * Reverse the migrations: Revierte todos los cambios que hemos hecho en el método up.
      */
     public function down(): void
     {

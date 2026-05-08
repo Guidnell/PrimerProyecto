@@ -2,43 +2,43 @@
 
 namespace App\Models;
 
-// use Illuminate\Contracts\Auth\MustVerifyEmail;
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
-use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 class Pagina extends Model
 {
+    use HasFactory;
+    
+    // Se específica la tabla con la cual se pretende trabajar
+    // Se recomienda que el modelo se escriba en singular y las tablas en plural
     protected $table='paginas';
-    public function ObtenerListados(){
-    // Cambiamos el all() por un where() para filtrar solo los registros activos (1)
-        $listadousuarios = Pagina::where('is_active', 1)->get();
+    //Creamos un atributo mediante cast para el guardado y la obtención de los datos
+    protected function casts():array{
+        return [
+            'created_at'=>'datetime:d-m-Y',
+            'is_active'=>'boolean'
+        ];
+    }
+
+    protected function name():Attribute{
+        return Attribute::make(
+            set: function($value){//Mutador
+                return strtolower($value);
+            },
+            get:function($value){//Accesor
+                return ucfirst($value);
+            }
+        );
+    }
+
+    public function ObtenerListado(){
+        $listadousuarios=Pagina::all();
         return $listadousuarios;
     }
 
     public function BuscarId($id){
-        $usuario=Pagina::find($id);
-        return $usuario;
+        $registro=Pagina::find($id);
+        return $registro;
     }
-    // se usa cuando vaya a llamar la consulta y le pueda asignar un formato
-    protected function casts():array{
-        return [
-            'created_at'=>'datetime',
-            'is_active'=>'boolean'
-            ];
-
-    }
-    protected function name():Attribute{
-        return Attribute::make(
-            get:function($value){
-                return ucfirst($value);
-            },
-            set:function($value){
-                return strtolower($value);
-            }
-        );
-}
-
 }

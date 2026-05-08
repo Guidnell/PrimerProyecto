@@ -14,19 +14,19 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->string('title');
-            // El campo debe ser único en la tabla
-            // Campo de tipo fecha y hora que puede ser nulo
-            $table->longText('content');
+            $table->longtext('content');
             $table->string('categoria');
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.
      */
     public function down(): void
     {
+        /** Para revertir o eliminar la tabla posts */
         Schema::dropIfExists('posts');
     }
 };
