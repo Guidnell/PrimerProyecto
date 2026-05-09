@@ -75,15 +75,17 @@ class HomeController extends Controller
     }*/
 
     public function guardarpagina(Request $request){
-        $pagina=new Pagina();
+        Pagina::create($request->all());
+        /*$pagina=new Pagina();
         $pagina->name=$request->name;
         $pagina->email=$request->email;
         $pagina->telefono=$request->telefono;
         $pagina->calle=$request->calle;
         $pagina->password=bcrypt('123456');
         $pagina->save();
-        return redirect('/pagina');
+        return redirect('/pagina');*/
         //return $request->all();
+        return redirect()->route('pagina.index');
     }
 
     public function nuevapagina(){
@@ -121,7 +123,7 @@ class HomeController extends Controller
 
     public function eliminar($id){
         //return "Eliminando la página";
-        $pagina=Pagina::find($id);
+        $pagina=Pagina :: find($id);
         $pagina->delete();
         return redirect('/pagina');
     }
